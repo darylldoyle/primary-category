@@ -12,12 +12,11 @@
  * @subpackage Enshrined_Primary_Category/admin/partials
  */
 ?>
-
 <p>
     <select name="enshrined_primary_category" class="enshrined_primary_category_select">
 		<?php foreach ( $enshrined_chosen_categories as $chosen_category ): ?>
-            <option class="option_<?php echo $chosen_category['id'] ?>" value="<?php echo $chosen_category['id'] ?>">
-				<?php echo $chosen_category['name'] ?>
+            <option class="option_<?php echo (int) $chosen_category['id'] ?>" value="<?php echo (int) $chosen_category['id'] ?>" <?php selected( $primary_cat, $chosen_category['id'], true ); ?>>
+				<?php echo esc_html( $chosen_category['name'] ) ?>
             </option>
 		<?php endforeach; ?>
     </select>

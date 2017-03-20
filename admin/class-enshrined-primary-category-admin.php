@@ -128,7 +128,11 @@ class Enshrined_Primary_Category_Admin {
 	 * @since   1.0.0
 	 */
 	public function render_enshrined_primary_category_meta_box() {
+		global $post;
 		$enshrined_chosen_categories = $this->get_chosen_categories();
+		$primary_cat = get_post_meta( $post->ID, $this->plugin_name, true );
+
+		wp_nonce_field( basename( __FILE__ ), 'enshrined_primary_category_nonce' );
 		include plugin_dir_path( __FILE__ ) . 'partials/enshrined-primary-category-admin-meta-box.php';
 	}
 
@@ -150,5 +154,31 @@ class Enshrined_Primary_Category_Admin {
 		}
 
 		return $cats;
+	}
+
+	/**
+	 * Store our primary post data
+	 *
+	 * @since   1.0.0
+	 *
+	 * @param int $post_id The post ID.
+	 */
+	public function save_post_data( $post_id ) {
+
+		// Verify meta box nonce
+		if ( !isset( $_POST['enshrined_primary_category_nonce'] ) || !wp_verify_nonce( $_POST['enshrined_primary_category_nonce'], basename( __FILE__ ) ) ){
+			return;
+		}
+
+		// Check user permissions
+		if ( ! current_user_can( 'edit_post', $post_id ) ){
+			return;
+		}
+
+		// Lets save the post
+		if( isset( $_POST['enshrined_primary_category'] ) ) {
+			// This will only ever be an int so it's safe to cast to one
+			update_post_meta( $post_id, $this->plugin_name, (int) $_POST['enshrined_primary_category'] );
+		}
 	}
 }
