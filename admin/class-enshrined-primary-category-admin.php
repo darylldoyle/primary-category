@@ -100,7 +100,9 @@ class Enshrined_Primary_Category_Admin {
 
 		wp_register_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/enshrined-primary-category-admin.js',
 			array( 'jquery' ), $this->version, false );
-		wp_localize_script( $this->plugin_name, 'enshrined_primary_categories', $this->get_chosen_categories() );
+		// We cast to an object so that JS handles it properly if empty
+		$chosen_cats = (object) $this->get_chosen_categories();
+		wp_localize_script( $this->plugin_name, 'enshrined_primary_categories', $chosen_cats );
 		wp_enqueue_script( $this->plugin_name );
 	}
 
@@ -136,8 +138,7 @@ class Enshrined_Primary_Category_Admin {
 		include plugin_dir_path( __FILE__ ) . 'partials/enshrined-primary-category-admin-meta-box.php';
 	}
 
-	/**
-	 * Get the categories for this post
+	/**Get the categories for this post
 	 *
 	 * @since   1.0.0
 	 *

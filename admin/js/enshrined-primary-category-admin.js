@@ -61,11 +61,11 @@
     function enshrined_populate_primary_categories_meta_box(enshrined_primary_categories) {
         var select = $('.enshrined_primary_category_select');
         var selected = select.val();
-
+        
         // Clear the select
         select.html('');
 
-        $.each(enshrined_primary_categories, function (id, cat) {
+        $.each(enshrined_primary_categories, function (id, cat, wut) {
             var option = $('<option class="option_' + cat.id + '" value="' + cat.id + '">' + cat.name + '</option>');
 
             if (cat.id == selected) {
