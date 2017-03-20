@@ -122,11 +122,23 @@ class Enshrined_Primary_Category_Admin {
 
 	}
 
+	/**
+	 * Render our category meta box
+	 *
+	 * @since   1.0.0
+	 */
 	public function render_enshrined_primary_category_meta_box() {
 		$enshrined_chosen_categories = $this->get_chosen_categories();
 		include plugin_dir_path( __FILE__ ) . 'partials/enshrined-primary-category-admin-meta-box.php';
 	}
 
+	/**
+	 * Get the categories for this post
+	 *
+	 * @since   1.0.0
+	 *
+	 * @return array
+	 */
 	public function get_chosen_categories() {
 		global $post;
 		$post_categories = wp_get_post_categories( $post->ID );
