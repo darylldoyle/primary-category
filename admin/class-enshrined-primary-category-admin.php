@@ -107,7 +107,7 @@ class Enshrined_Primary_Category_Admin {
 	}
 
 	/**
-	 * Add our metabox to the post type
+	 * Add our metabox to the post type.
 	 *
 	 * @since   1.0.0
 	 */
@@ -137,7 +137,7 @@ class Enshrined_Primary_Category_Admin {
 	}
 
 	/**
-	 * Render our category meta box
+	 * Render our category meta box.
 	 *
 	 * @since   1.0.0
 	 */
@@ -150,7 +150,7 @@ class Enshrined_Primary_Category_Admin {
 		include plugin_dir_path( __FILE__ ) . 'partials/enshrined-primary-category-admin-meta-box.php';
 	}
 
-	/**Get the categories for this post
+	/**Get the categories for this post.
 	 *
 	 * @since   1.0.0
 	 *
@@ -170,7 +170,7 @@ class Enshrined_Primary_Category_Admin {
 	}
 
 	/**
-	 * Store our primary post data
+	 * Store our primary post data.
 	 *
 	 * @since   1.0.0
 	 *
