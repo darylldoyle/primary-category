@@ -35,7 +35,7 @@ class Enshrined_Primary_Category {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Enshrined_Primary_Category_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      Enshrined_Primary_Category_Loader $loader Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -44,7 +44,7 @@ class Enshrined_Primary_Category {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      string    $plugin_name    The string used to uniquely identify this plugin.
+	 * @var      string $plugin_name The string used to uniquely identify this plugin.
 	 */
 	protected $plugin_name;
 
@@ -53,7 +53,7 @@ class Enshrined_Primary_Category {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      string    $version    The current version of the plugin.
+	 * @var      string $version The current version of the plugin.
 	 */
 	protected $version;
 
@@ -69,7 +69,7 @@ class Enshrined_Primary_Category {
 	public function __construct() {
 
 		$this->plugin_name = 'enshrined-primary-category';
-		$this->version = '1.0.0';
+		$this->version     = '1.0.0';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -153,10 +153,11 @@ class Enshrined_Primary_Category {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-		$this->loader->add_action( 'add_meta_boxes_post', $plugin_admin, 'add_meta_box' );
-		$this->loader->add_action( 'save_post_post', $plugin_admin, 'save_post_data' );
+		$this->loader->add_action( 'add_meta_boxes', $plugin_admin, 'add_meta_box' );
+		$this->loader->add_action( 'save_post', $plugin_admin, 'save_post_data' );
 
 	}
+
 
 	/**
 	 * Register all of the hooks related to the public-facing functionality

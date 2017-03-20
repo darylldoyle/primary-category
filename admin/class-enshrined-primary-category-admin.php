@@ -112,12 +112,24 @@ class Enshrined_Primary_Category_Admin {
 	 * @since   1.0.0
 	 */
 	public function add_meta_box() {
+		// We always add it to post
+		$screens = array( 'post' );
+
+		// Get all custom post types
+		$post_types = get_post_types( array( '_builtin' => false ), 'objects' );
+
+		// If custom post type has the category taxonomoy then we add the box to it
+		foreach ( $post_types as $post_type ) {
+			if ( in_array( 'category', $post_type->taxonomies ) ) {
+				$screens[] = $post_type->name;
+			}
+		}
 
 		add_meta_box(
 			'enshrined-primary-category-meta-box',
 			__( 'Primary Category', 'enshrined-primary-category' ),
 			array( $this, 'render_enshrined_primary_category_meta_box' ),
-			'post',
+			$screens,
 			'side',
 			'default'
 		);
