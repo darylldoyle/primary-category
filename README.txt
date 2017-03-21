@@ -30,7 +30,7 @@ Allows you to assign a primary category to a WordPress post.
 
 == Installation ==
 
-1. Upload `enshrined-primary-category.php` to the `/wp-content/plugins/` directory
+1. Upload `enshrined-primary-category` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 == Frequently Asked Questions ==
