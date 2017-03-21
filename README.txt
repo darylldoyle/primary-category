@@ -14,6 +14,20 @@ Allows you to assign a primary category to a WordPress post.
 
 Allows you to assign a primary category to a WordPress post.
 
+= Usage: =
+
+**Using a slug**
+`[primary_category category="category-slug"]`
+
+**Using an ID**
+`[primary_category category="2"]`
+
+**Limit on post type**
+`[primary_category category="2" post_type="post"]`
+
+**Limit posts per page**
+`[primary_category category="2" per_page="4"]`
+
 == Installation ==
 
 1. Upload `enshrined-primary-category.php` to the `/wp-content/plugins/` directory
