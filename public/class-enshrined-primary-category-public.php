@@ -216,13 +216,13 @@ class Enshrined_Primary_Category_Public {
 			'meta_query'     => array(
 				array(
 					'key'     => $this->plugin_name,
-					'value'   => $a['category'],
+					'value'   => (int) $a['category'],
 					'compare' => '=',
 				),
 			),
 			'post_status'    => 'publish',
 			'post_type'      => $a['post_type'],
-			'posts_per_page' => $a['per_page'],
+			'posts_per_page' => (int) $a['per_page'],
 			'paged'          => $paged,
 		);
 
